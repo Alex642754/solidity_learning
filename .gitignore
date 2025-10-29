@@ -1,4 +1,28 @@
 # Node modules
+node_modules/
+
+# Hardhat build outputs
+artifacts/
+cache/
+typechain/
+coverage/
+coverage.json
+out/
+dist/
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Env files
+.env
+.env.*
+
+# OS / Editor
+.DS_Store
+.vscode/
 /node_modules
 
 # Compilation output
