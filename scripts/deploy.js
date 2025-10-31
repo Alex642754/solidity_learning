@@ -1,40 +1,21 @@
-const { ethers } = require("hardhat");
+const hre = require("hardhat");
 
 async function main() {
-  console.log("开始部署 SimpleStorage 合约...");
+  // 1. 获取合约“工厂”（ContractFactory）
+  const SimpleBank = await hre.ethers.getContractFactory("SimpleBank");
 
-  // 获取合约工厂
-  const SimpleStorage = await ethers.getContractFactory("SimpleStorage");
-  
-  // 部署合约
-  console.log("正在部署合约...");
-  const simpleStorage = await SimpleStorage.deploy();
-  
-  // 等待部署完成
-  await simpleStorage.waitForDeployment();
-  
-  const contractAddress = await simpleStorage.getAddress();
-  console.log("SimpleStorage 合约已部署到:", contractAddress);
-  
-  // 验证部署
-  console.log("验证合约部署...");
-  const initialValue = await simpleStorage.get();
-  console.log("初始存储值:", initialValue.toString());
-  
-  // 测试合约功能
-  console.log("测试合约功能...");
-  const tx = await simpleStorage.set(42);
-  await tx.wait();
-  
-  const newValue = await simpleStorage.get();
-  console.log("设置后的存储值:", newValue.toString());
-  
-  console.log("部署完成！");
+  // 2. 部署合约（发送部署交易）
+  const bank = await SimpleBank.deploy();
+
+  // 3. 等待部署被区块链确认
+  await bank.waitForDeployment();
+
+  // 4. 打印合约地址
+  console.log("SimpleBank deployed to:", await bank.getAddress());
 }
 
-main()
-  .then(() => process.exit(0))
-  .catch((error) => {
-    console.error("部署失败:", error);
-    process.exit(1);
-  });
+// 捕获任何错误并把进程返回码设为非 0（表示失败）
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});

@@ -48,3 +48,18 @@ Day 2
 - 理解“链下查询（off-chain call）”概念，区分交易调用与链下查询
 - 掌握 receive() 特殊函数的用法，用于直接接收 ETH，并理解其与普通函数和 fallback() 的区别
 - 实战练习：通过 receive() 函数实现用户充值并触发 DepositMade 事件记录日志
+
+ Day 3
+
+- 彻底理解 Solidity 合约的核心语法与逻辑结构（以 SimpleBank 为例）
+- 掌握 mapping、modifier、external / public 等关键语法的使用场景与设计意图
+- 理解 SimpleBank 的功能设计：状态变量、事件、核心函数及安全校验逻辑
+- 初步掌握合约部署流程与 Hardhat 框架核心概念
+- 学习 scripts/deploy.js 文件的结构与执行原理
+- 了解 hre（Hardhat Runtime Environment）与 ethers 的作用
+- 理解 async/await 的异步执行机制，掌握合约部署的异步流程
+- 掌握 getContractFactory() 与 .deploy() 的原理与作用
+- 成功使用 Hardhat 本地环境部署 SimpleBank 合约
+- 执行命令：npx hardhat compile → npx hardhat run scripts/deploy.js
+- 输出结果：SimpleBank deployed to: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+- ✅ 标志着首次成功将合约部署到本地链上 

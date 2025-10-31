@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.28;
 
 contract SimpleBank {
     // 存储：记录每个地址的账户余额（永久存在于链上 storage）
