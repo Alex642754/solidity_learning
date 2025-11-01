@@ -63,3 +63,18 @@ Day 2
 - 执行命令：npx hardhat compile → npx hardhat run scripts/deploy.js
 - 输出结果：SimpleBank deployed to: 0x5FbDB2315678afecb367f032d93F642f64180aa3
 - ✅ 标志着首次成功将合约部署到本地链上 
+
+Day 4（项目理解篇）
+- 完成了对部署的深度理解
+- 彻底分析了 SimpleBank 合约功能设计
+- 理解各函数可见性：
+external 面向用户/EVM
+public 方便合约内部复用
+- 掌握关键修饰符：
+payable：接收 ETH
+view / pure：只读或纯计算
+- 理解事件 (emit) 用于通知前端和记录状态
+- 理解 EVM 特殊入口：
+receive() 自动接收 ETH
+fallback() 处理未知函数调用
+- 完成功能设计思路梳理，为测试和验证做准备

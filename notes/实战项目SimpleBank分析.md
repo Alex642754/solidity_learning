@@ -8,4 +8,24 @@ SimpleBank 合约的目的：
 
 4.遵循安全模式（Checks-Effects-Interactions），避免常见攻击
 
+功能分解：
+1.存款（deposit）
+2.取款（withdraw）
+3.查询余额（balanceOf）
+4.事件记录（Deposit, Withdraw）
+5.安全模式（Checks-Effects-Interactions）
+6.管理功能
+7.被动接收转账
+
+模块设计：
+第一个是可见性，这里理解是要看这个方法面向的对象是谁，如果只是面向用户，程序内部根本不会去复用的话，就使用external，在这个项目中的存取查询功能就符合，所以可见性都是external，而get balance查询余额这个功能，是属于复用性很强的，所以就使用public。
+
+为什么receive和fallback这两个函数明明不会被用户调用，可见性却是external？
+因为用户不调用，EVM会调用这两个函数，所以可见性必须是external。
+
+payabel，离钱最近的标识符，一个函数默认情况下是不能接收ETH的，所有被定义出的函数都默认是非收款型，只有加上payable，才可以接收ETH，同时运行访问msg.value。使用场景就是当函数接收ETH时。
+
+view和pure，表示这个函数不会改变合约的状态，view可以进行读操作，而pure连读都不可以，只能进行运算。这样把函数给标注上可以节省gas。使用场景一般都是读
+
+事件：交易记录是没有办法直接向前端传递信息的，所以只能通过事件来记录，主要是向前端发送链上 状态，一般都是在账户数据发生变化的函数中使用
 
