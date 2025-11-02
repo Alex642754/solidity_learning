@@ -34,3 +34,7 @@ view：函数修饰符，用于标识一个函数不会修改合约状态，仅�
 两个特殊的函数：
 receive()：当合约收到 ETH 时自动调用，不能有参数，不能返回值
 fallback()：当合约收到非空数据调用且没有匹配的函数时自动调用，不能有参数，不能返回值
+
+ethers的相关方法：
+ethers.getSigners()
+ethers.parseEther("1.0");//将1.0 ETH转换为 wei 单位，因为人类喜欢用 ETH 来表示金额，而合约内部只认wei

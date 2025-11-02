@@ -23,7 +23,7 @@
 ## 📚 学习记录
 
 > 以下为我在学习过程中每天的进展，持续更新中。
-
+当前已经完成合约的编写部署，并且测试通过。
 
 ### 🗓️ Day 1
 - 理解区块链的状态机模型与 EVM 工作原理  
@@ -78,3 +78,17 @@ view / pure：只读或纯计算
 receive() 自动接收 ETH
 fallback() 处理未知函数调用
 - 完成功能设计思路梳理，为测试和验证做准备
+
+Day 5
+
+- 学习并实践了 Hardhat 的测试框架流程
+- 理解了 describe() 与 it() 的结构逻辑：模块化组织与单元测试划分
+- 掌握了 Chai 断言库的核心语法：expect(actual).to.equal(expected)
+- 了解了 Mocha 的作用：作为底层测试运行器，自动执行 describe/it 结构
+- 理解了合约在测试中的部署机制：每个测试自动部署独立实例
+- 掌握了 ethers.getSigners() 获取测试账户、getContractFactory() 加载合约模板、deploy() 部署的流程
+- 理解了 .connect(signer) 的作用：以特定账户身份调用合约函数
+- 学会使用 .to.emit() 测试事件触发与参数验证
+- 区分了 getBalance(address) 与 ethers.provider.getBalance(contractAddress)：前者是映射余额，后者是链上账户余额
+- 掌握了完整的存款与取款测试逻辑，从功能验证到状态断言
+- 初步建立了测试设计思维：验证逻辑正确性与边界条件，而非仅关注语法实现
